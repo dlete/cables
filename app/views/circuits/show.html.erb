@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Reference:</b>
+  <%= @circuit.reference %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @circuit.provider %>
+</p>
+
+<p>
+  <b>End a:</b>
+  <%= @circuit.end_a %>
+</p>
+
+<p>
+  <b>End b:</b>
+  <%= @circuit.end_b %>
+</p>
+
+
+<%= link_to 'Edit', edit_circuit_path(@circuit) %> |
+<%= link_to 'Back', circuits_path %>

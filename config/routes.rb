@@ -1,4 +1,6 @@
 Cables::Application.routes.draw do
+  resources :circuits
+
   resources :endpoints
 
   resources :providers
