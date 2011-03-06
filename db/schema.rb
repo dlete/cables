@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110306112108) do
+ActiveRecord::Schema.define(:version => 20110306112556) do
+
+  create_table "endpoints", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "providers", :force => true do |t|
     t.string   "name"

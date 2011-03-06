@@ -1,4 +1,6 @@
 Cables::Application.routes.draw do
+  resources :endpoints
+
   resources :providers
 
   # The priority is based upon order of creation:
