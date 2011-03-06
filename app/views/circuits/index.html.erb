@@ -14,9 +14,9 @@
 <% @circuits.each do |circuit| %>
   <tr>
     <td><%= circuit.reference %></td>
-    <td><%= circuit.provider %></td>
-    <td><%= circuit.end_a %></td>
-    <td><%= circuit.end_b %></td>
+    <td><%= circuit.provider.name %></td>
+    <td><%= circuit.end_a.name %></td>
+    <td><%= circuit.end_b.name %></td>
     <td><%= link_to 'Show', circuit %></td>
     <td><%= link_to 'Edit', edit_circuit_path(circuit) %></td>
     <td><%= link_to 'Destroy', circuit, :confirm => 'Are you sure?', :method => :delete %></td>

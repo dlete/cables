@@ -6,6 +6,7 @@ gem 'rails', '3.0.5'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+gem 'will_paginate', '>=3.0.pre'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -32,6 +33,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3'
 
 group :development do
   gem 'rspec-rails'
+  gem 'faker'
 end
 
 group :test do

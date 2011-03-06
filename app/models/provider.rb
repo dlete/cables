@@ -1,11 +1,13 @@
 class Provider < ActiveRecord::Base
   validates_length_of :name,
     :minimum => 2,
-    :maximum => 20
+    :maximum => 99
   validates :abbreviation, :length => {
     :minimum => 2,
-    :maximum => 4
+    :maximum => 99
   }
 
   has_many :circuits
+  cattr_reader :per_page
+  @@per_page = 13
 end
