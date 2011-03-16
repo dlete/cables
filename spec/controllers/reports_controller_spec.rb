@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe ReportsController do
+  render_views
 
   describe "GET 'summary'" do
     it "should be successful" do
