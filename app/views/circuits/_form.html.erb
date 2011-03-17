@@ -33,6 +33,12 @@
                             :id, :name,
                             :include_blank => true %>
   </div>
+  <div class="field">
+    <%= f.label :medium %><br />
+    <%= f.collection_select :medium_id, @mediums,
+                            :id, :name,
+                            :include_blank => true %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

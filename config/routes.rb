@@ -1,4 +1,6 @@
 Cables::Application.routes.draw do
+  resources :media
+
   get "reports/summary"
 
   resources :circuits
