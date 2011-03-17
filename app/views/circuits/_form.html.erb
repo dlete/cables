@@ -16,29 +16,37 @@
     <%= f.text_field :reference %>
   </div>
   <div class="field">
-    <%= f.label :provider %><br />
+    <%= f.label :provider_id %><br />
     <%= f.collection_select :provider_id, @providers,
                             :id, :name,
                             :include_blank => true %>
-  </div>
+
   <div class="field">
-    <%= f.label :end_a %><br />
-    <%= f.collection_select :end_a, @endpoints,
+    <%= f.label :end_a_endpoint_id %><br />
+    <%= f.collection_select :end_a_endpoint_id, @endpoints,
                             :id, :name,
                             :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :end_b %><br />
-    <%= f.collection_select :end_b, @endpoints,
+    <%= f.label :end_a_medium_id %><br />
+    <%= f.collection_select :end_a_medium_id, @media,
+                            :id, :name,
+                            :include_blank => true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :end_b_endpoint_id %><br />
+    <%= f.collection_select :end_b_endpoint_id, @endpoints,
                             :id, :name,
                             :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :medium %><br />
-    <%= f.collection_select :medium_id, @mediums,
+    <%= f.label :end_b_medium_id %><br />
+    <%= f.collection_select :end_b_medium_id, @media,
                             :id, :name,
                             :include_blank => true %>
   </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

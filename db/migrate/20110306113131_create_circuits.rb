@@ -3,8 +3,10 @@ class CreateCircuits < ActiveRecord::Migration
     create_table :circuits do |t|
       t.string :reference
       t.references :provider
-      t.integer :end_a
-      t.integer :end_b
+      t.integer :end_a_endpoint_id
+      t.integer :end_b_endpoint_id
+      t.integer :end_a_medium_id
+      t.integer :end_b_medium_id
 
       t.timestamps
     end

@@ -7,6 +7,6 @@ class Endpoint < ActiveRecord::Base
     :maximum => 99
   }
 
-  has_many :circuits_end_a, :class_name => 'Circuit', :foreign_key => 'end_a'
-  has_many :circuits_end_b, :class_name => 'Circuit', :foreign_key => 'end_b'
+  has_many :end_a_endpoint, :class_name => 'Circuit', :foreign_key => 'end_a_endpoint_id'
+  has_many :end_b_endpoint, :class_name => 'Circuit', :foreign_key => 'end_b_endpoint_id'
 end
