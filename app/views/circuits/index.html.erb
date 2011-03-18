@@ -13,12 +13,25 @@
         plotShadow: false
       },
       title: {
-        text: 'CCircuits per provider'
+        text: 'Circuits per provider'
       },
       xAxis: {
         categories: <%= Circuit.provider_name %>
       },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'Circuits'
+         }  
+      },
+      tooltip: {
+        formatter: function() {
+          return this.x + ':' +
+            this.y;
+        }
+      },
       series: [{
+        name: 'Total circuits',
         data: <%= (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).circuits.count}.inspect %> 
       }]
     });
