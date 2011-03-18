@@ -1,10 +1,37 @@
 <h1>Let me tell you!</h1>
+<div id="chart_pie" style="width: 560px; height: 300px;"></div>
+
+<script type="text/javascript" charset="utf-8">  
+  $(function () {  
+    new Highcharts.Chart({  
+      chart: { 
+        renderTo: 'chart_pie',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+      },
+      title: {
+        text: 'Circuits per provider'
+      },
+      series: [{
+        type: 'pie',
+        name: 'Provider share',
+        data: [
+          ['Provider A', 45.0],
+          ['Provider B', 30.0],
+          ['Provider C', 5.0],
+          ['Provider D', 10.0],
+          ['Provider E', 10.0]
+        ]
+      }]
+    });  
+  });  
+</script>  
+
+
 <p>Total number of providers: <%= @providers_total %></p>
-
 <p>Total number of circuits: <%= @circuits_total %></p>
-
 <p>Total number of endpoints: <%= @endpoints_total %></p>
-
 <p>Circuits per provider: <%= @circuits_per_provider %></p>
-
 <p>Circuits per endpoint: <%= @circuits_per_endpoint %></p>
+

@@ -15,7 +15,7 @@ def make_providers
   Provider.create!(:name => "BT Ireland",
                    :abbreviation => "BT")
 
-  13.times do |n|
+  3.times do |n|
     name  = Faker::Company.name
     abbreviation = Faker::Internet.domain_word.to_s.capitalize
     Provider.create!(:name => name,
@@ -41,7 +41,7 @@ end
 
 def make_circuits
   Circuit.create!(:reference => "adafdk",
-                  :provider_id => Integer ("3"),
+                  :provider_id => Integer ("1"),
                   :end_a_endpoint_id => Integer ("3"),
                   :end_b_endpoint_id => Integer ("4"),
                   :end_a_medium_id => Integer ("2"),
