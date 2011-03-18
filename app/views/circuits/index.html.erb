@@ -1,4 +1,4 @@
-<h1>Listing circuits</h1>
+<h2>Listing circuits</h1>
 
 <div id="chart_column" style="width: 560px; height: 300px;"></div>
 
@@ -16,12 +16,13 @@
         text: 'CCircuits per provider'
       },
       xAxis: {
-        categories: <%= (Provider.first.id..Provider.last.id).map.inspect %>
+        categories: <%= Circuit.provider_name %>
       },
       series: [{
         data: <%= (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).circuits.count}.inspect %> 
       }]
     });
+  $('tspan').last().remove();
   });
 </script>
 

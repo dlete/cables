@@ -7,4 +7,12 @@ class Circuit < ActiveRecord::Base
   belongs_to :end_a_medium, :class_name => 'Medium'
   belongs_to :end_b_medium, :class_name => 'Medium'
 
+  def self.provider_name
+# this gives me: [BT Ireland, Stracke-Beatty, Pfannerstill-Pollich, Olson-Sipes, Eircom, Dublin City Corporation]
+#    "[" + (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).name}.join(", ") + "]"
+# this gives me: 'BT Ireland, Stracke-Beatty, Pfannerstill-Pollich, Olson-Sipes, Eircom, Dublin City Corporation'
+#    "'" + (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).name}.join(", ") + "'"
+    "['" + (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).name}.join(", ").gsub(/, /,"', '") + "']"
+  end
+
 end
