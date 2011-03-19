@@ -1,37 +1,91 @@
 <h1>Let me tell you!</h1>
-<div id="chart_pie" style="width: 560px; height: 300px;"></div>
+<div id="chart_line" style="width: 560px; height: 300px;"></div>
 
-<script type="text/javascript" charset="utf-8">  
-  $(function () {  
-    new Highcharts.Chart({  
-      chart: { 
-        renderTo: 'chart_pie',
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: 'chart_line',
+        defaultSeriesType: 'line',
         plotBackgroundColor: null,
         plotBorderWidth: null,
         plotShadow: false
       },
+      credits: {
+        enabled: true,
+        href: "http://presto.heanet.ie",
+        text: "La Casa de la Bomba"
+      },
+      title: {
+        text: 'Total circuits per date'
+      },
+      xAxis: {
+        type: 'datetime',
+        labels: {
+          rotation: 45,
+          y: 25
+        }
+      },
+      yAxis: {
+        min: 0,
+        offset: 5,
+        title: { text: 'Circuits' },
+      },
+      tooltip: {
+        formatter: function() {
+          return Highcharts.dateFormat("%e %B %Y", this.x) + ': ' + this.y;
+        }
+      },
+      series: [{
+        name: 'Total circuits',
+        pointInterval: <%= 1.day * 1000 %>,  
+        pointStart: <%= 1.weeks.ago.at_midnight.to_i * 1000 %>,  
+        data: <%= (1.weeks.ago.to_date..Date.today).map { |date| Circuit.total_up_to_a_date(date).to_f}.inspect %>
+      }]
+    });
+  });
+</script>
+
+
+<div id="chart_column" style="width: 560px; height: 300px;"></div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function () {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: 'chart_column',
+        defaultSeriesType: 'column',
+        plotBackgroundColor: null,
+        plotBorderWidth: null,
+        plotShadow: false
+      },
+    credits: {
+        enabled: true,
+        href: "http://presto.heanet.ie",
+        text: "La Casa de la Bomba" 
+    },
       title: {
         text: 'Circuits per provider'
       },
+      xAxis: {
+        categories: <%= Circuit.provider_name %>
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'Circuits'
+         }
+      },
+      tooltip: {
+        formatter: function() {
+          return this.x + ': ' +
+            this.y;
+        }
+      },
       series: [{
-        type: 'pie',
-        name: 'Provider share',
-        data: [
-          ['Provider A', 45.0],
-          ['Provider B', 30.0],
-          ['Provider C', 5.0],
-          ['Provider D', 10.0],
-          ['Provider E', 10.0]
-        ]
+        name: 'Total circuits',
+        data: <%= (Provider.first.id..Provider.last.id).map { |blah| Provider.find(blah).circuits.count}.inspect %>
       }]
-    });  
-  });  
-</script>  
-
-
-<p>Total number of providers: <%= @providers_total %></p>
-<p>Total number of circuits: <%= @circuits_total %></p>
-<p>Total number of endpoints: <%= @endpoints_total %></p>
-<p>Circuits per provider: <%= @circuits_per_provider %></p>
-<p>Circuits per endpoint: <%= @circuits_per_endpoint %></p>
-
+    });
+  });
+</script>
