@@ -4,10 +4,30 @@ namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
     Rake::Task['db:reset'].invoke
+    make_organizations
+    make_clients
     make_providers
     make_endpoints
     make_media
     make_circuits
+  end
+end
+
+def make_organizations
+  Organization.create!(:name => "IDA",
+                   :abbreviation => "Irish Development Agency")
+    33.times do |n|
+    name  = Faker::Company.name
+    abbreviation = Faker::Internet.domain_word.to_s.capitalize
+    Organization.create!(:name => name,
+                     :abbreviation => abbreviation)
+  end
+end
+
+def make_clients
+  17.times do |n|
+    organization_id = (rand * Organization.count).ceil
+    Client.create!(:organization_id => organization_id)
   end
 end
 

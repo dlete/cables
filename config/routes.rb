@@ -1,4 +1,8 @@
 Cables::Application.routes.draw do
+  resources :clients
+
+  resources :organizations
+
   resources :media
 
   get "reports/summary"

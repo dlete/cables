@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110316234555) do
+ActiveRecord::Schema.define(:version => 20110403014008) do
 
   create_table "circuits", :force => true do |t|
     t.string   "reference"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(:version => 20110316234555) do
     t.integer  "medium_id"
   end
 
+  create_table "clients", :force => true do |t|
+    t.integer  "organization_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "endpoints", :force => true do |t|
     t.string   "name"
     t.string   "abbreviation"
@@ -33,6 +39,13 @@ ActiveRecord::Schema.define(:version => 20110316234555) do
 
   create_table "media", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "name"
+    t.string   "abbreviation"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
