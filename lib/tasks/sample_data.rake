@@ -32,14 +32,9 @@ def make_clients
 end
 
 def make_providers
-  Provider.create!(:name => "BT Ireland",
-                   :abbreviation => "BT")
-
-  3.times do |n|
-    name  = Faker::Company.name
-    abbreviation = Faker::Internet.domain_word.to_s.capitalize
-    Provider.create!(:name => name,
-                     :abbreviation => abbreviation)
+  7.times do |n|
+    organization_id = (rand * Organization.count).ceil
+    Provider.create!(:organization_id => organization_id)
   end
 end
 

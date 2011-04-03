@@ -2,8 +2,7 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.xml
   def index
-#    @providers = Provider.all
-    @providers = Provider.paginate :page => params[:page], :order => 'name DESC'
+    @providers = Provider.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,6 +24,7 @@ class ProvidersController < ApplicationController
   # GET /providers/new
   # GET /providers/new.xml
   def new
+    load_auxiliary_data
     @provider = Provider.new
 
     respond_to do |format|
@@ -35,6 +35,7 @@ class ProvidersController < ApplicationController
 
   # GET /providers/1/edit
   def edit
+    load_auxiliary_data
     @provider = Provider.find(params[:id])
   end
 
@@ -81,4 +82,12 @@ class ProvidersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  private
+
+  def load_auxiliary_data
+    @organizations = Organization.order("name ASC")
+  end
+
 end

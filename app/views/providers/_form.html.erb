@@ -12,12 +12,10 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :abbreviation %><br />
-    <%= f.text_field :abbreviation %>
+    <%= f.label :organization %><br />
+    <%= f.collection_select :organization_id, @organizations,
+                            :id, :name,
+                            :include_blank => true %>
   </div>
   <div class="actions">
     <%= f.submit %>

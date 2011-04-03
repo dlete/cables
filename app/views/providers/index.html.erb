@@ -1,10 +1,8 @@
 <h1>Listing providers</h1>
 
-<%= will_paginate %>
 <table>
   <tr>
-    <th>Name</th>
-    <th>Abbreviation</th>
+    <th>Organization</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,8 +10,7 @@
 
 <% @providers.each do |provider| %>
   <tr>
-    <td><%= provider.name %></td>
-    <td><%= provider.abbreviation %></td>
+    <td><%= provider.organization.name %></td>
     <td><%= link_to 'Show', provider %></td>
     <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
     <td><%= link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -22,8 +19,5 @@
 </table>
 
 <br />
-<%= will_paginate %>
-<%= page_entries_info @providers %>
 
-<br /><br />
 <%= link_to 'New Provider', new_provider_path %>

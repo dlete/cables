@@ -7,6 +7,7 @@ class Provider < ActiveRecord::Base
     :maximum => 99
   }
 
+  belongs_to :organization
   has_many :circuits
   cattr_reader :per_page
   @@per_page = 13
