@@ -18,7 +18,7 @@
   <div class="field">
     <%= f.label :provider_id %><br />
     <%= f.collection_select :provider_id, @providers,
-                            :id, :name,
+                            :id, :organization_id,
                             :include_blank => true %>
 
   <div class="field">

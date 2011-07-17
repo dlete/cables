@@ -16,7 +16,7 @@
 <% @circuits.each do |circuit| %>
   <tr>
     <td><%= circuit.reference %></td>
-    <td><%= circuit.provider.name %></td>
+    <td><%= circuit.provider.organization.name %></td>
     <td><%= circuit.end_a_endpoint.name %></td>
     <td><%= circuit.end_a_medium.name %></td>
     <td><%= circuit.end_b_endpoint.name %></td>

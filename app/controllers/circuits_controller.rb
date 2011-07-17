@@ -85,7 +85,7 @@ class CircuitsController < ApplicationController
 
   private
   def load_auxiliary_data
-    @providers = Provider.find(:all, :order => "name")
+    @providers = Provider.find(:all, :order => "organization_id")
     @endpoints = Endpoint.find(:all, :order => "name")
     @media = Medium.find(:all, :order => "name")
   end
