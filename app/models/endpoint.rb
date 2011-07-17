@@ -9,4 +9,7 @@ class Endpoint < ActiveRecord::Base
 
   has_many :end_a_endpoint, :class_name => 'Circuit', :foreign_key => 'end_a_endpoint_id'
   has_many :end_b_endpoint, :class_name => 'Circuit', :foreign_key => 'end_b_endpoint_id'
+
+  has_many :link_end_a_endpoint, :class_name => 'Link', :foreign_key => 'link_end_a_endpoint_id'
+  has_many :link_end_b_endpoint, :class_name => 'Link', :foreign_key => 'link_end_b_endpoint_id'
 end

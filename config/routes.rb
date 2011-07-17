@@ -1,4 +1,6 @@
 Cables::Application.routes.draw do
+  resources :links
+
   resources :clients
 
   resources :organizations
