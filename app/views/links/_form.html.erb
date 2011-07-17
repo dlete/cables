@@ -23,7 +23,7 @@
   </div>
   <div class="field">
     <%= f.label :link_end_a_endpoint_id %><br />
-    <%= f.collection_select :link_end_a_endpoint_id, @media,
+    <%= f.collection_select :link_end_a_endpoint_id, @endpoints,
                             :id, :name,
                             :include_blank => true %>
   </div>
@@ -35,7 +35,7 @@
   </div>
   <div class="field">
     <%= f.label :link_end_b_endpoint_id %><br />
-    <%= f.collection_select :link_end_b_endpoint_id, @media,
+    <%= f.collection_select :link_end_b_endpoint_id, @endpoints,
                             :id, :name,
                             :include_blank => true %>
   </div>

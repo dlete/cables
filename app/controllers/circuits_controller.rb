@@ -2,6 +2,7 @@ class CircuitsController < ApplicationController
   # GET /circuits
   # GET /circuits.xml
   def index
+    load_auxiliary_data
     @circuits = Circuit.all
 
     respond_to do |format|
@@ -13,6 +14,7 @@ class CircuitsController < ApplicationController
   # GET /circuits/1
   # GET /circuits/1.xml
   def show
+    load_auxiliary_data
     @circuit = Circuit.find(params[:id])
 
     respond_to do |format|
@@ -89,5 +91,4 @@ class CircuitsController < ApplicationController
     @endpoints = Endpoint.find(:all, :order => "name")
     @media = Medium.find(:all, :order => "name")
   end
-
 end
