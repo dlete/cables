@@ -87,7 +87,7 @@ class LinksController < ApplicationController
 
   private
   def load_auxiliary_data
-    @circuits = Circuit.all
+    @circuits = Circuit.all(:select => "id, reference", :conditions => ["id not in (select circuit_id from link_legs)"])
     @providers = Provider.find(:all, :order => "organization_id")
     @endpoints = Endpoint.find(:all, :order => "name")
     @media = Medium.find(:all, :order => "name")
