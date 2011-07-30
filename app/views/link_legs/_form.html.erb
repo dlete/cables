@@ -1,0 +1,12 @@
+<%= form_for([@link, @link.link_legs.build]) do |f| %>
+  <div class="field">
+    <%= f.label :circuit_id %><br />
+    <%= f.collection_select :circuit_id, @circuits,
+                            :id, :reference,
+                            :include_blank => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

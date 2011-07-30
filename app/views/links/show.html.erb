@@ -35,6 +35,14 @@
   <%= @link.link_medium.name %>
 </p>
 
+<table>
+<h3>Legs</h3>
+<%= render :partial => "link_legs/link_leg",
+           :collection => @link.link_legs %>
+</table>
+
+<h3>Add a leg:</h3>
+<%= render :partial => "link_legs/form" %>
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>

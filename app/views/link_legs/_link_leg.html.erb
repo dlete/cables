@@ -1,0 +1,15 @@
+<table>
+  <tr>
+    <td>
+      <b>Circuit:</b>
+      <%= link_leg.circuit.reference %>
+    </td>
+    <td>
+    <%= link_to 'Destroy', [link_leg.link, link_leg],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+    </td>
+    <td><%= link_to 'Edit', edit_link_link_leg_path(link_leg.link, link_leg) %></td>
+
+  </tr>
+</table>

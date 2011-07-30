@@ -87,6 +87,7 @@ class LinksController < ApplicationController
 
   private
   def load_auxiliary_data
+    @circuits = Circuit.all
     @providers = Provider.find(:all, :order => "organization_id")
     @endpoints = Endpoint.find(:all, :order => "name")
     @media = Medium.find(:all, :order => "name")
