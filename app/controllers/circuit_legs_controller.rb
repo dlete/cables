@@ -32,6 +32,6 @@ class CircuitLegsController < ApplicationController
 
   private 
   def load_auxiliary_data
-    @links = Link.all
+    @links = Link.all(:select => "id, reference", :conditions => ["id not in (select link_id from circuit_legs)"])
   end
 end
