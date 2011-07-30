@@ -1,5 +1,7 @@
 Cables::Application.routes.draw do
-  resources :links
+  resources :links do
+    resources :link_legs
+  end
 
   resources :clients
 

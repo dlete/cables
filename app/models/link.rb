@@ -9,4 +9,5 @@ class Link < ActiveRecord::Base
   belongs_to :link_medium, :class_name => 'Medium'
 
   has_many :circuit_legs
+  has_many :link_legs
 end

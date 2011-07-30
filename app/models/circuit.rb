@@ -9,4 +9,5 @@ class Circuit < ActiveRecord::Base
   belongs_to :circuit_medium, :class_name => 'Medium'
 
   has_many :circuit_legs
+  has_many :link_legs
 end
