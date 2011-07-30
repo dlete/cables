@@ -1,0 +1,13 @@
+<table>
+  <tr>
+    <td>
+    <b>Link:</b>
+    <%= circuit_leg.link.reference %>
+    </td>
+    <td>
+    <%= link_to 'Destroy', [circuit_leg.circuit, circuit_leg],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+    </td>
+  </tr>
+</table>
