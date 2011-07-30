@@ -1,4 +1,15 @@
+<h1>Editing circuit leg</h1>
 
-<%= render 'form' %>
+<% form_for [@circuit, @circuit_leg] do |f| %>
+  <div class="field">
+    <%= f.label :link_id %><br />
+    <%= f.collection_select :link_id, @links,
+                            :id, :reference,
+                            :include_blank => true %>
+  </div>
 
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
 

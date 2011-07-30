@@ -38,19 +38,8 @@
 
 <table>
 <h3>Legs</h3>
-<% @circuit.circuit_legs.each do |circuit_leg| %>
-  <tr>
-    <td>
-    <b>Link:</b>
-    <%= circuit_leg.link.reference %>
-    </td>
-    <td>
-    <%= link_to 'Destroy', [circuit_leg.circuit, circuit_leg],
-               :confirm => 'Are you sure?',
-               :method => :delete %>
-    </td> 
-  </tr>
-<% end %>
+<%= render :partial => "circuit_legs/circuit_leg",
+           :collection => @circuit.circuit_legs %>
 </table>
 
 <h3>Add a leg:</h3>
