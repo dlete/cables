@@ -35,6 +35,25 @@
   <%= @circuit.circuit_medium.name %>
 </p>
 
+<h3>Legs</h3>
+<%= render :partial => "circuit_legs/legs",
+           :collection => @circuit.circuit_legs %>
+
+
+<h3>Add a leg:</h3>
+<%= form_for([@circuit, @circuit.circuit_legs.build]) do |f| %>
+  <div class="field">
+    <%= f.label :link_id %><br />
+    <%= f.collection_select :link_id, @links,
+                            :id, :reference,
+                            :include_blank => true %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
 
 <%= link_to 'Edit', edit_circuit_path(@circuit) %> |
 <%= link_to 'Back', circuits_path %>
