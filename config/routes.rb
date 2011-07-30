@@ -9,7 +9,9 @@ Cables::Application.routes.draw do
 
   get "reports/summary"
 
-  resources :circuits
+  resources :circuits do
+    resources :circuit_legs
+  end
 
   resources :endpoints
 

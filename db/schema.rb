@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110717142904) do
+ActiveRecord::Schema.define(:version => 20110730005549) do
+
+  create_table "circuit_legs", :force => true do |t|
+    t.integer  "circuit_id"
+    t.integer  "link_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "circuits", :force => true do |t|
     t.string   "reference"

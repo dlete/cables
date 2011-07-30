@@ -7,4 +7,6 @@ class Link < ActiveRecord::Base
   belongs_to :link_end_a_medium, :class_name => 'Medium'
   belongs_to :link_end_b_medium, :class_name => 'Medium'
   belongs_to :link_medium, :class_name => 'Medium'
+
+  has_many :circuit_legs
 end
