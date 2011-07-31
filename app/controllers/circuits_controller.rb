@@ -15,6 +15,7 @@ class CircuitsController < ApplicationController
   # GET /circuits/1.xml
   def show
     load_auxiliary_data
+    @dependant_links = Link.joins(:link_legs).where(:link_legs => { :circuit_id => params[:id] })
     @circuit = Circuit.find(params[:id])
 
     respond_to do |format|
@@ -91,5 +92,6 @@ class CircuitsController < ApplicationController
     @links = Link.all(:select => "id, reference", :conditions => ["id not in (select link_id from circuit_legs)"])
     @media = Medium.find(:all, :order => "name")
     @providers = Provider.find(:all, :order => "organization_id")
+    @dependant_links = Link.joins(:link_legs).where(:link_legs => { :circuit_id => 1 })
   end
 end

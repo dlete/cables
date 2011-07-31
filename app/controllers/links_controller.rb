@@ -15,6 +15,7 @@ class LinksController < ApplicationController
   # GET /links/1.xml
   def show
     load_auxiliary_data
+    @dependant_circuits = Circuit.joins(:circuit_legs).where(:circuit_legs => { :link_id => params[:id] })
     @link = Link.find(params[:id])
 
     respond_to do |format|
