@@ -15,25 +15,31 @@ namespace :db do
 end
 
 def make_organizations
-  Organization.create!(:name => "IDA",
-                   :abbreviation => "Irish Development Agency")
-    33.times do |n|
-    name  = Faker::Company.name
-    abbreviation = Faker::Internet.domain_word.to_s.capitalize
-    Organization.create!(:name => name,
-                     :abbreviation => abbreviation)
-  end
+  Organization.create!(:name => "", :abbreviation => "")
+  Organization.create!(:name => "Airspeed", :abbreviation => "Airspeed")
+  Organization.create!(:name => "BTI", :abbreviation => "BT Ireland")
+  Organization.create!(:name => "e|Net", :abbreviation => "e|Net")
+  Organization.create!(:name => "ESBT", :abbreviation => "ESB Telecoms")
+  Organization.create!(:name => "UPC", :abbreviation => "UPC")
+
+  Organization.create!(:name => "IDA", :abbreviation => "Irish Development Agency")
+  Organization.create!(:name => "NUIG", :abbreviation => "National University Ireland Galway")
+  Organization.create!(:name => "NUIM", :abbreviation => "National University Ireland Maynooth")
+  Organization.create!(:name => "RCSI", :abbreviation => "Royal College Surgerons Ireland")
+  Organization.create!(:name => "TCD", :abbreviation => "Trinity College Dublin")
+  Organization.create!(:name => "UCD", :abbreviation => "University College Dulin")
+  Organization.create!(:name => "UL", :abbreviation => "University Limerick")
 end
 
 def make_clients
-  17.times do |n|
+  8.times do |n|
     organization_id = (rand * Organization.count).ceil
     Client.create!(:organization_id => organization_id)
   end
 end
 
 def make_providers
-  7.times do |n|
+  5.times do |n|
     organization_id = (rand * Organization.count).ceil
     Provider.create!(:organization_id => organization_id)
   end
