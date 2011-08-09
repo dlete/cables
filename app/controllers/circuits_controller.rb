@@ -89,7 +89,10 @@ class CircuitsController < ApplicationController
   private
   def load_auxiliary_data
     @endpoints = Endpoint.find(:all, :order => "name")
-    @links = Link.all(:select => "id, reference", :conditions => ["id not in (select link_id from circuit_legs)"])
+    # circuit_legs que se muestran en add circuits show
+    # todos aquellos links que no esten en uso en este mismo circuit (que ya
+    # estén en circuit_leg) y que el multiplexer_id no se haya cogido
+    @available_links = Link.includes(:circuit_legs).where("circuit_legs.link_id IS NULL OR circuit_legs.circuit_id != ?", params[:id])
     @media = Medium.find(:all, :order => "name")
     @providers = Provider.find(:all, :order => "organization_id")
     @dependant_links = Link.joins(:link_legs).where(:link_legs => { :circuit_id => 1 })

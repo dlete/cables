@@ -1,7 +1,7 @@
 <%= form_for([@circuit, @circuit.circuit_legs.build]) do |f| %>
   <div class="field">
     <%= f.label :link_id %><br />
-    <%= f.collection_select :link_id, @links,
+    <%= f.collection_select :link_id, @available_links,
                             :id, :reference,
                             :include_blank => true %>
   </div>
