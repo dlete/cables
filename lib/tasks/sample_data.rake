@@ -15,7 +15,6 @@ namespace :db do
 end
 
 def make_organizations
-  Organization.create!(:name => "", :abbreviation => "")
   Organization.create!(:name => "Airspeed", :abbreviation => "Airspeed")
   Organization.create!(:name => "BTI", :abbreviation => "BT Ireland")
   Organization.create!(:name => "e|Net", :abbreviation => "e|Net")
@@ -46,7 +45,23 @@ def make_providers
 end
 
 def make_endpoints
-  31.times do |n|
+  Endpoint.create!(:name => "BH1", :abbreviation => "Blanchardstown Servecentric")
+  Endpoint.create!(:name => "CWT1", :abbreviation => "Citywest ESAT-X")
+  Endpoint.create!(:name => "DCU1", :abbreviation => "DCU Henry Gratham")
+  Endpoint.create!(:name => "DCU2", :abbreviation => "DCU Library")
+  Endpoint.create!(:name => "NCI1", :abbreviation => "National College Ireland")
+  Endpoint.create!(:name => "NUIG1", :abbreviation => "NUIG HEAnet PoP")
+  Endpoint.create!(:name => "NUIG2", :abbreviation => "NUIG DERI Center")
+  Endpoint.create!(:name => "PW", :abbreviation => "Park West Interxion")
+  Endpoint.create!(:name => "TCD1", :abbreviation => "TCD Pearse")
+  Endpoint.create!(:name => "TCD2", :abbreviation => "TCD O'Reilly")
+  Endpoint.create!(:name => "UCD1", :abbreviation => "UCD Daedalus")
+  Endpoint.create!(:name => "UCD1", :abbreviation => "UCD LG14")
+  Endpoint.create!(:name => "WIT1", :abbreviation => "WIT Walton")
+  Endpoint.create!(:name => "WIT2", :abbreviation => "WIT Tourism & Leisure")
+
+
+  14.times do |n|
     name = Faker::Address.city
     abbreviation = Faker::Address.street_name
     Endpoint.create!(:name => name,
@@ -55,10 +70,9 @@ def make_endpoints
 end
 
 def make_media
-  5.times do |n|
-    name = Faker::Company.name
-    Medium.create!(:name => name)
-  end
+  Medium.create!(:name => "Copper, Cat6e UTP")
+  Medium.create!(:name => "Fibre MM")
+  Medium.create!(:name => "Fibre SM")
 end
 
 def make_circuits
