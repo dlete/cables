@@ -92,6 +92,7 @@ class CircuitsController < ApplicationController
     # circuit_legs que se muestran en add circuits show
     # todos aquellos links que no esten en uso en este mismo circuit (que ya
     # estén en circuit_leg) y que el multiplexer_id no se haya cogido
+    # http://stackoverflow.com/questions/4751051/how-can-i-chain-boolean-logic-statements-with-active-record
     @available_links = Link.includes(:circuit_legs).where("circuit_legs.link_id IS NULL OR circuit_legs.circuit_id != ?", params[:id])
     @media = Medium.find(:all, :order => "name")
     @providers = Provider.find(:all, :order => "organization_id")
