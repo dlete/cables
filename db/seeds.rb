@@ -11,6 +11,9 @@
   Organization.create(:abbreviation => 'ENET', :name => 'e|Net')
   Organization.create(:abbreviation => 'ESBT', :name => 'ESB Telecoms')
   Organization.create(:abbreviation => 'UPC', :name => 'UPC')
+  Organization.create(:abbreviation => 'HEA-BLUE', :name => 'HEAnet Bluenet')
+  Organization.create(:abbreviation => 'HEA-BROWN', :name => 'HEAnet Brownet')
+  Organization.create(:abbreviation => 'HEA-RED', :name => 'HEAnet Rednet')
 
   Organization.create(:abbreviation => 'DCU', :name => 'Dublin City University')
   Organization.create(:abbreviation => 'NUIG', :name => 'National University Ireland Galway')
@@ -20,7 +23,9 @@
   Organization.create(:abbreviation => 'UCD', :name => 'University College Dulin')
   Organization.create(:abbreviation => 'UL', :name => 'University Limerick')
 
-
+  Client.create!(:organization_id => Organization.find_by_abbreviation('HEA-BLUE').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('HEA-BROWN').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('HEA-RED').id)
   Client.create!(:organization_id => Organization.find_by_abbreviation('DCU').id)
   Client.create!(:organization_id => Organization.find_by_abbreviation('NUIG').id)
   Client.create!(:organization_id => Organization.find_by_abbreviation('NUIM').id)
@@ -29,7 +34,9 @@
   Client.create!(:organization_id => Organization.find_by_abbreviation('UCD').id)
   Client.create!(:organization_id => Organization.find_by_abbreviation('UL').id)
 
-
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('HEA-BLUE').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('HEA-BROWN').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('HEA-RED').id)
   Provider.create!(:organization_id => Organization.find_by_abbreviation('ASPD').id)
   Provider.create!(:organization_id => Organization.find_by_abbreviation('BTI').id)
   Provider.create!(:organization_id => Organization.find_by_abbreviation('ENET').id)
@@ -108,3 +115,4 @@
   Medium.create!(:name => "Copper, Cat6e UTP")
   Medium.create!(:name => "Fibre MM")
   Medium.create!(:name => "Fibre SM")
+
