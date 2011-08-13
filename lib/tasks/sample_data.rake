@@ -1,4 +1,3 @@
-require 'faker'
 
 namespace :db do
   desc "Fill database with sample data"
@@ -125,7 +124,7 @@ end
 
 def make_circuits
   47.times do |n|
-    reference = Faker::Address.zip_code
+    reference = (rand * 1000)
     provider_id = (rand * Provider.count).ceil
     client_id = (rand * Client.count).ceil
     circuit_end_a_endpoint_id = (rand * Endpoint.count).ceil
@@ -140,7 +139,7 @@ end
 
 def make_links
   47.times do |n|
-    reference = Faker::Address.zip_code
+    reference = (rand * 1000)
     provider_id = (rand * Provider.count).ceil
     client_id = (rand * Client.count).ceil
     link_end_a_endpoint_id = (rand * Endpoint.count).ceil
