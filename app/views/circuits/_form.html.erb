@@ -28,26 +28,8 @@
                             :include_blank => true %>
   </div>
   <div class="field">
-    <%= f.label :circuit_end_a_medium_id %><br />
-    <%= f.collection_select :circuit_end_a_medium_id, @media,
-                            :id, :name,
-                            :include_blank => true %>
-  </div>
-  <div class="field">
     <%= f.label :circuit_end_b_endpoint_id %><br />
     <%= f.collection_select :circuit_end_b_endpoint_id, @endpoints,
-                            :id, :name,
-                            :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :circuit_end_b_medium_id %><br />
-    <%= f.collection_select :circuit_end_b_medium_id, @media,
-                            :id, :name,
-                            :include_blank => true %>
-  </div>
-  <div class="field">
-    <%= f.label :circuit_medium_id %><br />
-    <%= f.collection_select :circuit_medium_id, @media,
                             :id, :name,
                             :include_blank => true %>
   </div>

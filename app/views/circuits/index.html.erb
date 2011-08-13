@@ -5,13 +5,7 @@
     <th>Reference</th>
     <th>Provider</th>
     <th>Circuit end a endpoint</th>
-    <th>Circuit end a medium</th>
     <th>Circuit end b endpoint</th>
-    <th>Circuit end b medium</th>
-    <th>Circuit medium</th>
-    <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @circuits.each do |circuit| %>
@@ -19,10 +13,7 @@
     <td><%= circuit.reference %></td>
     <td><%= circuit.provider.organization.name %></td>
     <td><%= circuit.circuit_end_a_endpoint.name %></td>
-    <td><%= circuit.circuit_end_a_medium.name %></td>
     <td><%= circuit.circuit_end_b_endpoint.name %></td>
-    <td><%= circuit.circuit_end_b_medium.name %></td>
-    <td><%= circuit.circuit_medium.name %></td>
     <td><%= link_to 'Show', circuit %></td>
     <td><%= link_to 'Edit', edit_circuit_path(circuit) %></td>
     <td><%= link_to 'Destroy', circuit, :confirm => 'Are you sure?', :method => :delete %></td>
