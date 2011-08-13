@@ -97,25 +97,16 @@ def make_links
   Link.create!(:reference => "adafdk",
                :provider_id => Integer ("1"),
                :link_end_a_endpoint_id => Integer ("3"),
-               :link_end_b_endpoint_id => Integer ("4"),
-               :link_end_a_medium_id => Integer ("2"),
-               :link_end_b_medium_id => Integer ("1"),
-               :link_medium_id => Integer ("1"))
+               :link_end_b_endpoint_id => Integer ("4"))
 
   47.times do |n|
     reference = Faker::Address.zip_code
     provider_id = (rand * Provider.count).ceil
     link_end_a_endpoint_id = (rand * Endpoint.count).ceil
     link_end_b_endpoint_id = (rand * Endpoint.count).ceil
-    link_end_a_medium_id = (rand * Medium.count).ceil
-    link_end_b_medium_id = (rand * Medium.count).ceil
-    link_medium_id = (rand * Medium.count).ceil
     Link.create!(:reference => reference,
                  :provider_id => provider_id,
                  :link_end_a_endpoint_id => link_end_a_endpoint_id,
-                 :link_end_b_endpoint_id => link_end_b_endpoint_id,
-                 :link_end_a_medium_id => link_end_a_medium_id,
-                 :link_end_b_medium_id => link_end_b_medium_id,
-                 :link_medium_id => link_medium_id)
+                 :link_end_b_endpoint_id => link_end_b_endpoint_id)
   end
 end
