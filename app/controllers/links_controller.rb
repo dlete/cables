@@ -93,7 +93,6 @@ class LinksController < ApplicationController
     @available_circuits = Circuit.all(:conditions => ["id NOT IN (SELECT circuit_id FROM link_legs)"]) 
     @providers = Provider.find(:all, :order => "organization_id")
     @endpoints = Endpoint.find(:all, :order => "name")
-    @media = Medium.find(:all, :order => "name")
   end
 
 end
