@@ -1,4 +1,5 @@
 class Link < ActiveRecord::Base
+  belongs_to :client
   belongs_to :provider
 
   belongs_to :link_end_a_endpoint, :class_name => 'Endpoint'

@@ -22,6 +22,12 @@
                             :include_blank => true %>
   </div>
   <div class="field">
+    <%= f.label :client_id %><br />
+    <%= f.collection_select :client_id, @clients,
+                            :id, :organization_name,
+                            :include_blank => true %>
+  </div>
+  <div class="field">
     <%= f.label :link_end_a_endpoint_id %><br />
     <%= f.collection_select :link_end_a_endpoint_id, @endpoints,
                             :id, :name,

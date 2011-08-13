@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110813005622) do
+ActiveRecord::Schema.define(:version => 20110813010748) do
 
   create_table "circuit_legs", :force => true do |t|
     t.integer  "circuit_id"
@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20110813005622) do
     t.integer  "link_end_b_endpoint_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "client_id"
   end
 
   create_table "media", :force => true do |t|
