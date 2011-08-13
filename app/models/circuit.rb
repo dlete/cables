@@ -8,6 +8,7 @@ class Circuit < ActiveRecord::Base
   has_many :circuit_legs
   has_many :link_legs
 
+# http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select
   def summary_circuit
     "#{reference} #{provider.organization.name} #{circuit_end_a_endpoint.name} #{circuit_end_b_endpoint.name}"
   end
