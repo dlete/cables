@@ -15,58 +15,76 @@ namespace :db do
 end
 
 def make_organizations
-  Organization.create!(:name => "Airspeed", :abbreviation => "Airspeed")
-  Organization.create!(:name => "BTI", :abbreviation => "BT Ireland")
-  Organization.create!(:name => "e|Net", :abbreviation => "e|Net")
-  Organization.create!(:name => "ESBT", :abbreviation => "ESB Telecoms")
-  Organization.create!(:name => "UPC", :abbreviation => "UPC")
+  Organization.create(:abbreviation => 'ASPD', :name => 'Airspeed')
+  Organization.create(:abbreviation => 'BTI', :name => 'BT Ireland')
+  Organization.create(:abbreviation => 'ENET', :name => 'e|Net')
+  Organization.create(:abbreviation => 'ESBT', :name => 'ESB Telecoms')
+  Organization.create(:abbreviation => 'UPC', :name => 'UPC')
 
-  Organization.create!(:name => "IDA", :abbreviation => "Irish Development Agency")
-  Organization.create!(:name => "NUIG", :abbreviation => "National University Ireland Galway")
-  Organization.create!(:name => "NUIM", :abbreviation => "National University Ireland Maynooth")
-  Organization.create!(:name => "RCSI", :abbreviation => "Royal College Surgerons Ireland")
-  Organization.create!(:name => "TCD", :abbreviation => "Trinity College Dublin")
-  Organization.create!(:name => "UCD", :abbreviation => "University College Dulin")
-  Organization.create!(:name => "UL", :abbreviation => "University Limerick")
+  Organization.create(:abbreviation => 'DCU', :name => 'Dublin City University')
+  Organization.create(:abbreviation => 'NUIG', :name => 'National University Ireland Galway')
+  Organization.create(:abbreviation => 'NUIM', :name => 'National University Ireland Maynooth')
+  Organization.create(:abbreviation => 'RCSI', :name => 'Royal College Surgerons Ireland')
+  Organization.create(:abbreviation => 'TCD', :name => 'Trinity College Dublin')
+  Organization.create(:abbreviation => 'UCD', :name => 'University College Dulin')
+  Organization.create(:abbreviation => 'UL', :name => 'University Limerick')
 end
 
 def make_clients
-  8.times do |n|
-    organization_id = (rand * Organization.count).ceil
-    Client.create!(:organization_id => organization_id)
-  end
+  Client.create!(:organization_id => Organization.find_by_abbreviation('DCU').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('NUIG').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('NUIM').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('RCSI').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('TCD').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('UCD').id)
+  Client.create!(:organization_id => Organization.find_by_abbreviation('UL').id)
 end
 
 def make_providers
-  5.times do |n|
-    organization_id = (rand * Organization.count).ceil
-    Provider.create!(:organization_id => organization_id)
-  end
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('ASPD').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('BTI').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('ENET').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('ESBT').id)
+  Provider.create!(:organization_id => Organization.find_by_abbreviation('UPC').id)
 end
 
 def make_endpoints
-  Endpoint.create!(:name => "BH1", :abbreviation => "Blanchardstown Servecentric")
-  Endpoint.create!(:name => "CWT1", :abbreviation => "Citywest ESAT-X")
-  Endpoint.create!(:name => "DCU1", :abbreviation => "DCU Henry Gratham")
-  Endpoint.create!(:name => "DCU2", :abbreviation => "DCU Library")
-  Endpoint.create!(:name => "NCI1", :abbreviation => "National College Ireland")
-  Endpoint.create!(:name => "NUIG1", :abbreviation => "NUIG HEAnet PoP")
-  Endpoint.create!(:name => "NUIG2", :abbreviation => "NUIG DERI Center")
-  Endpoint.create!(:name => "PW", :abbreviation => "Park West Interxion")
-  Endpoint.create!(:name => "TCD1", :abbreviation => "TCD Pearse")
-  Endpoint.create!(:name => "TCD2", :abbreviation => "TCD O'Reilly")
-  Endpoint.create!(:name => "UCD1", :abbreviation => "UCD Daedalus")
-  Endpoint.create!(:name => "UCD1", :abbreviation => "UCD LG14")
-  Endpoint.create!(:name => "WIT1", :abbreviation => "WIT Walton")
-  Endpoint.create!(:name => "WIT2", :abbreviation => "WIT Tourism & Leisure")
+  Endpoint.create!(:name => "bh-pe1.ardnet.net", :abbreviation => "bh-pe1")
+  Endpoint.create!(:name => "bh-pe1.ardnet.net", :abbreviation => "bh-pe2")
+  Endpoint.create!(:name => "cork-pe1.ardnet.net", :abbreviation => "cork-pe1")
+  Endpoint.create!(:name => "cork-pe2.ardnet.net", :abbreviation => "cork-pe2")
+  Endpoint.create!(:name => "cwt-pe1.ardnet.net", :abbreviation => "cwt-pe1")
+  Endpoint.create!(:name => "cwt-pe2.ardnet.net", :abbreviation => "cwt-pe2")
+  Endpoint.create!(:name => "dcu-pe1.ardnet.net", :abbreviation => "dcu-pe1")
+  Endpoint.create!(:name => "dun-pe1.ardnet.net", :abbreviation => "dun-pe1")
+  Endpoint.create!(:name => "fetac-pe1.ardnet.net", :abbreviation => "fetac-pe1")
+  Endpoint.create!(:name => "gal-pe1.ardnet.net", :abbreviation => "gal-pe1")
+  Endpoint.create!(:name => "gal-pe2.ardnet.net", :abbreviation => "gal-pe2")
+  Endpoint.create!(:name => "lim-pe1.ardnet.net", :abbreviation => "lim-pe1")
+  Endpoint.create!(:name => "pw-pe1.ardnet.net", :abbreviation => "pw-pe1")
+  Endpoint.create!(:name => "pw-pe2.ardnet.net", :abbreviation => "pw-pe2")
+  Endpoint.create!(:name => "tcd-pe1.ardnet.net", :abbreviation => "tcd-pe2")
+  Endpoint.create!(:name => "ucd-pe1.ardnet.net", :abbreviation => "ucd-pe1")
+  Endpoint.create!(:name => "wit-pe1.ardnet.net", :abbreviation => "wit-pe1")
+  Endpoint.create!(:name => "wit-pe2.ardnet.net", :abbreviation => "wit-pe2")
 
-
-  14.times do |n|
-    name = Faker::Address.city
-    abbreviation = Faker::Address.street_name
-    Endpoint.create!(:name => name,
-                       :abbreviation => abbreviation)
-  end
+  Endpoint.create!(:abbreviation => "BH1", :name => "Blanchardstown Servecentric, MMR1")
+  Endpoint.create!(:abbreviation => "BH2", :name => "Blanchardstown Servecentric, MMR2")
+  Endpoint.create!(:abbreviation => "CWT1", :name => "Citywest ESAT-X, MMR1")
+  Endpoint.create!(:abbreviation => "CWT2", :name => "Citywest ESAT-X, MMR2")
+  Endpoint.create!(:abbreviation => "DCU1", :name => "DCU Henry Gratham")
+  Endpoint.create!(:abbreviation => "DCU2", :name => "DCU Library")
+  Endpoint.create!(:abbreviation => "NCI1", :name => "National College Ireland")
+  Endpoint.create!(:abbreviation => "NUIG1", :name => "NUIG HEAnet PoP")
+  Endpoint.create!(:abbreviation => "NUIG2", :name => "NUIG DERI Center")
+  Endpoint.create!(:abbreviation => "PW1", :name => "Park West Interxion, MMR1")
+  Endpoint.create!(:abbreviation => "PW2", :name => "Park West Interxion, MMR2")
+  Endpoint.create!(:abbreviation => "TCD1", :name => "TCD Pearse")
+  Endpoint.create!(:abbreviation => "TCD2", :name => "TCD O'Reilly")
+  Endpoint.create!(:abbreviation => "UCD1", :name => "UCD Daedalus")
+  Endpoint.create!(:abbreviation => "UCD1", :name => "UCD LG14")
+  Endpoint.create!(:abbreviation => "WIT1", :name => "WIT Walton")
+  Endpoint.create!(:abbreviation => "WIT2", :name => "WIT Tourism & Leisure")
 end
 
 def make_media
