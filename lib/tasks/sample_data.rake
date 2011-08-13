@@ -124,12 +124,6 @@ def make_media
 end
 
 def make_circuits
-  Circuit.create!(:reference => "adafdk",
-                  :provider_id => Integer ("1"),
-                  :client_id => Integer ("1"),
-                  :circuit_end_a_endpoint_id => Integer ("3"),
-                  :circuit_end_b_endpoint_id => Integer ("4"))
-
   47.times do |n|
     reference = Faker::Address.zip_code
     provider_id = (rand * Provider.count).ceil
@@ -145,12 +139,6 @@ def make_circuits
 end
 
 def make_links
-  Link.create!(:reference => "adafdk",
-               :provider_id => Integer ("1"),
-               :client_id => Integer ("1"),
-               :link_end_a_endpoint_id => Integer ("3"),
-               :link_end_b_endpoint_id => Integer ("4"))
-
   47.times do |n|
     reference = Faker::Address.zip_code
     provider_id = (rand * Provider.count).ceil
