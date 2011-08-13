@@ -7,4 +7,9 @@ class Link < ActiveRecord::Base
 
   has_many :circuit_legs
   has_many :link_legs
+
+  def summary_link
+    "#{reference} #{provider.organization.name} #{link_end_a_endpoint.name} #{link_end_b_endpoint.name}"
+  end
+
 end

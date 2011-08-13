@@ -2,7 +2,7 @@
   <div class="field">
     <%= f.label :circuit_id %><br />
     <%= f.collection_select :circuit_id, @available_circuits,
-                            :id, :reference,
+                            :id, :summary_circuit,
                             :include_blank => true %>
   </div>
 

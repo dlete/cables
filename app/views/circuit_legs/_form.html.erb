@@ -2,7 +2,7 @@
   <div class="field">
     <%= f.label :link_id %><br />
     <%= f.collection_select :link_id, @available_links,
-                            :id, :reference,
+                            :id, :summary_link,
                             :include_blank => true %>
   </div>
 
