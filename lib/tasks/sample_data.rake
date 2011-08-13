@@ -9,8 +9,8 @@ namespace :db do
     make_providers
     make_endpoints
     make_media
-#    make_circuits
-#    make_links
+    make_circuits
+    make_links
   end
 end
 
