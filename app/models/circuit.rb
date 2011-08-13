@@ -10,7 +10,7 @@ class Circuit < ActiveRecord::Base
 
 # http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select
   def summary_circuit
-    "#{reference} #{provider.organization.name} #{circuit_end_a_endpoint.name} #{circuit_end_b_endpoint.name}"
+    "#{reference} #{provider.organization.abbreviation} #{circuit_end_a_endpoint.abbreviation} #{circuit_end_b_endpoint.abbreviation}"
   end
 
 end

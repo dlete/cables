@@ -43,7 +43,7 @@
   Provider.create!(:organization_id => Organization.find_by_abbreviation('ESBT').id)
   Provider.create!(:organization_id => Organization.find_by_abbreviation('UPC').id)
 
-
+  Endpoint.create!(:name => "MPLS Cloud/Resilient BBN", :abbreviation => "mpls-cloud")
   Endpoint.create!(:name => "bh-pe1.ardnet.net", :abbreviation => "bh-pe1")
   Endpoint.create!(:name => "bh-pe1.ardnet.net", :abbreviation => "bh-pe2")
   Endpoint.create!(:name => "cork-pe1.ardnet.net", :abbreviation => "cork-pe1")
@@ -58,7 +58,7 @@
   Endpoint.create!(:name => "lim-pe1.ardnet.net", :abbreviation => "lim-pe1")
   Endpoint.create!(:name => "pw-pe1.ardnet.net", :abbreviation => "pw-pe1")
   Endpoint.create!(:name => "pw-pe2.ardnet.net", :abbreviation => "pw-pe2")
-  Endpoint.create!(:name => "tcd-pe1.ardnet.net", :abbreviation => "tcd-pe2")
+  Endpoint.create!(:name => "tcd-pe1.ardnet.net", :abbreviation => "tcd-pe1")
   Endpoint.create!(:name => "ucd-pe1.ardnet.net", :abbreviation => "ucd-pe1")
   Endpoint.create!(:name => "wit-pe1.ardnet.net", :abbreviation => "wit-pe1")
   Endpoint.create!(:name => "wit-pe2.ardnet.net", :abbreviation => "wit-pe2")
@@ -115,4 +115,332 @@
   Medium.create!(:name => "Copper, Cat6e UTP")
   Medium.create!(:name => "Fibre MM")
   Medium.create!(:name => "Fibre SM")
+
+
+
+reference = 'l-HEA-BROWN-0001'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm2-cwt').id
+end_b = Endpoint.find_by_abbreviation('oadm2-sc').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BROWN-0002'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm2-cwt').id
+end_b = Endpoint.find_by_abbreviation('oadm1-ucd').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BROWN-0003'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm2-cwt').id
+end_b = Endpoint.find_by_abbreviation('oadm1-tcd').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BROWN-0004'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm1-tcd').id
+end_b = Endpoint.find_by_abbreviation('oadm1-ucd').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BROWN-0005'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm1-dcu').id
+end_b = Endpoint.find_by_abbreviation('oadm1-tcd').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BROWN-0006'
+provider = Organization.find_by_abbreviation('HEA-BROWN').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BROWN').clients.first.id
+end_a = Endpoint.find_by_abbreviation('oadm1-dcu').id
+end_b = Endpoint.find_by_abbreviation('oadm2-sc').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+
+
+
+
+reference = 'l-HEA-BLUE-0001'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('bh-pe1').id
+end_b = Endpoint.find_by_abbreviation('bh-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0002'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('bh-pe1').id
+end_b = Endpoint.find_by_abbreviation('dcu-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0003'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('bh-pe2').id
+end_b = Endpoint.find_by_abbreviation('pw-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0004'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cork-pe1').id
+end_b = Endpoint.find_by_abbreviation('cork-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0005'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cork-pe1').id
+end_b = Endpoint.find_by_abbreviation('lim-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0006'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cork-pe2').id
+end_b = Endpoint.find_by_abbreviation('wit-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0007'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe1').id
+end_b = Endpoint.find_by_abbreviation('cwt-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0008'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe1').id
+end_b = Endpoint.find_by_abbreviation('lim-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0009'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe1').id
+end_b = Endpoint.find_by_abbreviation('wit-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0010'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe2').id
+end_b = Endpoint.find_by_abbreviation('ucd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0011'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe2').id
+end_b = Endpoint.find_by_abbreviation('pw-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0012'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('cwt-pe2').id
+end_b = Endpoint.find_by_abbreviation('ucd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0013'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('dcu-pe1').id
+end_b = Endpoint.find_by_abbreviation('tcd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0014'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('dcu-pe1').id
+end_b = Endpoint.find_by_abbreviation('fetac-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0015'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('dun-pe1').id
+end_b = Endpoint.find_by_abbreviation('gal-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0016'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('dun-pe1').id
+end_b = Endpoint.find_by_abbreviation('pw-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0017'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('gal-pe1').id
+end_b = Endpoint.find_by_abbreviation('gal-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0018'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('gal-pe2').id
+end_b = Endpoint.find_by_abbreviation('lim-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0019'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('pw-pe1').id
+end_b = Endpoint.find_by_abbreviation('pw-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0020'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('pw-pe2').id
+end_b = Endpoint.find_by_abbreviation('tcd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0021'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('tcd-pe1').id
+end_b = Endpoint.find_by_abbreviation('ucd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0022'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('wit-pe1').id
+end_b = Endpoint.find_by_abbreviation('wit-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0023'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('bh-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0024'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('bh-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0025'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('cork-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0026'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('cork-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0027'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('cwt-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0028'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('cwt-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0029'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('dcu-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0030'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('dun-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0030'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('gal-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0031'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('gal-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0032'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('lim-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0033'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('pw-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0034'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('pw-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0035'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('tcd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0036'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('ucd-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0037'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('wit-pe1').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+reference = 'l-HEA-BLUE-0038'
+provider = Organization.find_by_abbreviation('HEA-BLUE').providers.first.id
+client = Organization.find_by_abbreviation('HEA-BLUE').clients.first.id
+end_a = Endpoint.find_by_abbreviation('mpls-cloud').id
+end_b = Endpoint.find_by_abbreviation('wit-pe2').id
+Link.create!(:reference => reference, :provider_id => provider, :client_id => client, :link_end_a_endpoint_id => end_a, :link_end_b_endpoint_id => end_b)
+
+
+
+
+
+
+
 

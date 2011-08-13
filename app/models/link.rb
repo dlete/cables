@@ -9,7 +9,7 @@ class Link < ActiveRecord::Base
   has_many :link_legs
 
   def summary_link
-    "#{reference} #{provider.organization.name} #{link_end_a_endpoint.name} #{link_end_b_endpoint.name}"
+    "#{reference} #{provider.organization.abbreviation} #{link_end_a_endpoint.abbreviation} #{link_end_b_endpoint.abbreviation}"
   end
 
 end

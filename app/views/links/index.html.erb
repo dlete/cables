@@ -12,10 +12,10 @@
 <% @links.each do |link| %>
   <tr>
     <td><%= link.reference %></td>
-    <td><%= link.provider.organization.name %></td>
-    <td><%= link.client.organization.name %></td>
-    <td><%= link.link_end_a_endpoint.name %></td>
-    <td><%= link.link_end_b_endpoint.name %></td>
+    <td><%= link.provider.organization.abbreviation %></td>
+    <td><%= link.client.organization.abbreviation %></td>
+    <td><%= link.link_end_a_endpoint.abbreviation %></td>
+    <td><%= link.link_end_b_endpoint.abbreviation %></td>
     <td><%= link_to 'Show', link %></td>
     <td><%= link_to 'Edit', edit_link_path(link) %></td>
     <td><%= link_to 'Destroy', link, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -5,7 +5,7 @@ class Client < ActiveRecord::Base
   has_many :links
 
   def organization_name
-    organization.name
+    organization.abbreviation
   end
 
 end

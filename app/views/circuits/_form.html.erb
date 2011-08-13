@@ -30,13 +30,13 @@
   <div class="field">
     <%= f.label :circuit_end_a_endpoint_id %><br />
     <%= f.collection_select :circuit_end_a_endpoint_id, @endpoints,
-                            :id, :name,
+                            :id, :abbreviation,
                             :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :circuit_end_b_endpoint_id %><br />
     <%= f.collection_select :circuit_end_b_endpoint_id, @endpoints,
-                            :id, :name,
+                            :id, :abbreviation,
                             :include_blank => true %>
   </div>
   <div class="actions">

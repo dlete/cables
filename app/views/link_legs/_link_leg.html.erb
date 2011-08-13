@@ -1,9 +1,9 @@
 <table>
   <tr>
-    <td>
-      <b>Circuit:</b>
-      <%= link_leg.circuit.reference %>
-    </td>
+    <td><%= link_leg.circuit.reference %></td>
+    <td><%= link_leg.circuit.provider.organization.name %></td>
+    <td><%= link_leg.circuit.circuit_end_a_endpoint.abbreviation %></td>
+    <td><%= link_leg.circuit.circuit_end_b_endpoint.abbreviation %></td>
     <td>
     <%= link_to 'Destroy', [link_leg.link, link_leg],
                :confirm => 'Are you sure?',
