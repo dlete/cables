@@ -2,7 +2,8 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.xml
   def index
-    @clients = Client.all
+#    @clients = Client.all
+    @clients = Client.find(:all, :include => :organization, :order => "organizations.abbreviation")
 
     respond_to do |format|
       format.html # index.html.erb

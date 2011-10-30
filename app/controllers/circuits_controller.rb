@@ -15,7 +15,6 @@ class CircuitsController < ApplicationController
   # GET /circuits/1.xml
   def show
     load_auxiliary_data
-    @dependant_links = Link.joins(:link_legs).where(:link_legs => { :circuit_id => params[:id] })
     @circuit = Circuit.find(params[:id])
 
     respond_to do |format|
@@ -94,8 +93,10 @@ class CircuitsController < ApplicationController
     # estén en circuit_leg) y que el multiplexer_id no se haya cogido
     # http://stackoverflow.com/questions/4751051/how-can-i-chain-boolean-logic-statements-with-active-record
     @available_links = Link.includes(:circuit_legs).where("circuit_legs.link_id IS NULL OR circuit_legs.circuit_id != ?", params[:id])
-    @providers = Provider.find(:all, :order => "organization_id")
-    @clients = Client.find(:all, :order => "organization_id")
-    @dependant_links = Link.joins(:link_legs).where(:link_legs => { :circuit_id => 1 })
+
+    @providers = Provider.find(:all, :include => :organization, :order => "organizations.abbreviation")
+#    @providers = Provider.find(:all, :order => "organization_id")
+    @clients = Client.find(:all, :include => :organization, :order => "organizations.name")
+#    @clients = Client.find(:all, :order => "organization_id")
   end
 end

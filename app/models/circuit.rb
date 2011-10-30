@@ -5,8 +5,8 @@ class Circuit < ActiveRecord::Base
   belongs_to :circuit_end_a_endpoint, :class_name => 'Endpoint'
   belongs_to :circuit_end_b_endpoint, :class_name => 'Endpoint'
 
-  has_many :circuit_legs
-  has_many :link_legs
+  has_many :circuit_legs, :dependent => :destroy
+  has_many :link_legs, :dependent => :destroy
 
 # http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select
   def summary_circuit

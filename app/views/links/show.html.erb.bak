@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<table>
+<h3>These depend on me</h3>
+<%= render :partial => "link_dependants",
+           :collection => @link.circuit_legs, :as => :circuit_leg %>
+</table>
+
+
+<p>
+  <b>Reference:</b>
+  <%= @link.reference %>
+</p>
+
+<p>
+  <b>Provider:</b>
+  <%= @link.provider.organization.name %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @link.client.organization.name %>
+</p>
+
+<p>
+  <b>Link end a endpoint:</b>
+  <%= @link.link_end_a_endpoint.name %>
+</p>
+
+<p>
+  <b>Link end b endpoint:</b>
+  <%= @link.link_end_b_endpoint.name %>
+</p>
+
+<table>
+<h3>I depend on these</h3>
+<%= render :partial => "link_legs/link_leg",
+           :collection => @link.link_legs %>
+</table>
+
+<table>
+<h3>These depend on me</h3>
+<%= render :partial => "summary_circuit" %>
+</table>
+
+<table>
+<h3>These depend on me as well</h3>
+  <%= render :partial => "summary_circuit2" %>
+</table>
+
+<h3>Add a leg:</h3>
+<%= render :partial => "link_legs/form" %>
+
+<%= link_to 'Edit', edit_link_path(@link) %> |
+<%= link_to 'Back', links_path %>

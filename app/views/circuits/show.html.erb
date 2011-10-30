@@ -1,40 +1,38 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Reference:</b>
-  <%= @circuit.reference %>
-</p>
-
-<p>
-  <b>Provider:</b>
-  <%= @circuit.provider.organization.name %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @circuit.client.organization.name %>
-</p>
-
-<p>
-  <b>Circuit end a endpoint:</b>
-  <%= @circuit.circuit_end_a_endpoint.name %>
-</p>
-
-<p>
-  <b>Circuit end b endpoint:</b>
-  <%= @circuit.circuit_end_b_endpoint.name %>
-</p>
-
 <table>
 <h3>I depend on these links</h3>
-<%= render :partial => "circuit_legs/circuit_leg",
-           :collection => @circuit.circuit_legs %>
+<%= render :partial => "circuit_legs",
+           :collection => @circuit.circuit_legs, :as => :circuit_leg %>
 </table>
+
 
 <table>
 <h3>These links depend on me</h3>
-<%= render :partial => "summary_link" %>
+<%= render :partial => "circuit_dependants",
+           :collection => @circuit.link_legs, :as => :link_leg %>
 </table>
+
+
+<table>
+  <h3>Circuit details:</h3>
+  <tr>
+    <th>Reference</th>
+    <th>Provider</th>
+    <th>Client</th>
+    <th>Link end A endpoint</th>
+    <th>Link end B endpoint</th>
+  </tr>
+
+  <tr>
+    <td><%= @circuit.reference %></td>
+    <td><%= @circuit.provider.organization.name %></td>
+    <td><%= @circuit.client.organization.name %></td>
+    <td><%= @circuit.circuit_end_a_endpoint.name %></td>
+    <td><%= @circuit.circuit_end_b_endpoint.name %></td>
+  </tr>
+</table>
+
 
 <h3>Add a leg:</h3>
 <%= render :partial => "circuit_legs/form" %>

@@ -1,0 +1,21 @@
+<table>
+  <tr>
+    <td><%= link_leg.link.reference %></td>
+    <td><%= link_leg.link.provider.organization.abbreviation %></td>
+    <td><%= link_leg.link.link_end_a_endpoint.abbreviation %></td>
+    <td><%= link_leg.link.link_end_b_endpoint.abbreviation %></td>
+    <td>
+    <%= link_to 'Destroy', [link_leg.link],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+    </td>
+    <td><%= link_to 'Edit', edit_link_path(link_leg.link) %></td>
+    <td><%= link_to 'Show link', link_leg.link %></td>
+
+<% unless link_leg.link.circuit_legs.blank? %>
+<%= render :partial => "links/link_dependants",
+           :collection => link_leg.link.circuit_legs, :as => :circuit_leg %>
+<% end %>
+
+  </tr>
+</table>

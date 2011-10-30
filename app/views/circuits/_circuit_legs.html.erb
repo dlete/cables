@@ -1,0 +1,16 @@
+<table>
+  <tr>
+    <td><%= circuit_leg.link.reference %></td>
+    <td><%= circuit_leg.link.provider.organization.abbreviation %></td>
+    <td><%= circuit_leg.link.link_end_a_endpoint.abbreviation %></td>
+    <td><%= circuit_leg.link.link_end_b_endpoint.abbreviation %></td>
+    <td>
+    <%= link_to 'Destroy', [circuit_leg.circuit, circuit_leg],
+               :confirm => 'Are you sure?',
+               :method => :delete %>
+    </td>
+    <td><%= link_to 'Edit', edit_circuit_circuit_leg_path(circuit_leg.circuit, circuit_leg) %></td>
+    <td><%= link_to 'Show link', circuit_leg.link %></td>
+
+  </tr>
+</table>

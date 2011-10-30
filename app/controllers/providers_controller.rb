@@ -2,7 +2,8 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.xml
   def index
-    @providers = Provider.all
+#    @providers = Provider.all
+    @providers = Provider.find(:all, :include => :organization, :order => "organizations.abbreviation")
 
     respond_to do |format|
       format.html # index.html.erb

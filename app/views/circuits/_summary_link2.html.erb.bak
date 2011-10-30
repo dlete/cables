@@ -1,0 +1,8 @@
+<% circuit.link_legs.each do |ll| %>
+  <tr>
+    <td><%= ll.link.reference %></td>
+    <td><%= link_to 'Show', ll.link %></td>
+
+
+  </tr>
+<% end %>

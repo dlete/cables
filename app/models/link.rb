@@ -5,8 +5,8 @@ class Link < ActiveRecord::Base
   belongs_to :link_end_a_endpoint, :class_name => 'Endpoint'
   belongs_to :link_end_b_endpoint, :class_name => 'Endpoint'
 
-  has_many :circuit_legs
-  has_many :link_legs
+  has_many :circuit_legs, :dependent => :destroy
+  has_many :link_legs, :dependent => :destroy
 
   def summary_link
     "#{reference} #{provider.organization.abbreviation} #{link_end_a_endpoint.abbreviation} #{link_end_b_endpoint.abbreviation}"

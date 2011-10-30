@@ -1,40 +1,37 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Reference:</b>
-  <%= @link.reference %>
-</p>
-
-<p>
-  <b>Provider:</b>
-  <%= @link.provider.organization.name %>
-</p>
-
-<p>
-  <b>Client:</b>
-  <%= @link.client.organization.name %>
-</p>
-
-<p>
-  <b>Link end a endpoint:</b>
-  <%= @link.link_end_a_endpoint.name %>
-</p>
-
-<p>
-  <b>Link end b endpoint:</b>
-  <%= @link.link_end_b_endpoint.name %>
-</p>
-
 <table>
 <h3>I depend on these</h3>
-<%= render :partial => "link_legs/link_leg",
-           :collection => @link.link_legs %>
+<%= render :partial => "link_legs",
+           :collection => @link.link_legs, :as => :link_leg %>
 </table>
+
 
 <table>
 <h3>These depend on me</h3>
-<%= render :partial => "summary_circuit" %>
+<%= render :partial => "link_dependants",
+           :collection => @link.circuit_legs, :as => :circuit_leg %>
 </table>
+
+<table>
+  <h3>Link details:</h3>
+  <tr>
+    <th>Reference</th>
+    <th>Provider</th>
+    <th>Client</th>
+    <th>Link end A endpoint</th>
+    <th>Link end B endpoint</th>
+  </tr>
+
+  <tr>
+    <td><%= @link.reference %></td>
+    <td><%= @link.provider.organization.name %></td>
+    <td><%= @link.client.organization.name %></td>
+    <td><%= @link.link_end_a_endpoint.name %></td>
+    <td><%= @link.link_end_b_endpoint.name %></td>
+  </tr>
+</table>
+
 
 <h3>Add a leg:</h3>
 <%= render :partial => "link_legs/form" %>

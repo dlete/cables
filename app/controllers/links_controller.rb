@@ -15,7 +15,6 @@ class LinksController < ApplicationController
   # GET /links/1.xml
   def show
     load_auxiliary_data
-    @dependant_circuits = Circuit.joins(:circuit_legs).where(:circuit_legs => { :link_id => params[:id] })
     @link = Link.find(params[:id])
 
     respond_to do |format|
@@ -91,8 +90,10 @@ class LinksController < ApplicationController
     @circuits = Circuit.all(:select => "id, reference", :conditions => ["id not in (select circuit_id from link_legs)"])
     # link_legs que se muestran: todos aquellos circuits que no se hayan cogido, que esten en link_legs
     @available_circuits = Circuit.all(:conditions => ["id NOT IN (SELECT circuit_id FROM link_legs)"]) 
-    @providers = Provider.find(:all, :order => "organization_id")
-    @clients = Client.find(:all, :order => "organization_id")
+    @providers = Provider.find(:all, :include => :organization, :order => "organizations.abbreviation")
+#    @providers = Provider.find(:all, :order => "organization_id")
+    @clients = Client.find(:all, :include => :organization, :order => "organizations.name")
+#    @clients = Client.find(:all, :order => "organization_id")
     @endpoints = Endpoint.find(:all, :order => "name")
   end
 

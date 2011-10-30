@@ -1,0 +1,10 @@
+<% @link.circuit_legs.each do |cl| %>
+  <tr>
+    <td><%= cl.circuit.reference %></td>
+    <td><%= link_to 'Show', cl.circuit %></td>
+
+
+
+   <%= render :partial => "circuits/summary_link2", :locals => { :circuit => cl.circuit }   %>
+  </tr>
+<% end %>

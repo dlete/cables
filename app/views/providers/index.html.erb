@@ -3,6 +3,7 @@
 <table>
   <tr>
     <th>Organization</th>
+    <th>Abbreviation</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,6 +12,7 @@
 <% @providers.each do |provider| %>
   <tr>
     <td><%= provider.organization.name %></td>
+    <td><%= provider.organization.abbreviation %></td>
     <td><%= link_to 'Show', provider %></td>
     <td><%= link_to 'Edit', edit_provider_path(provider) %></td>
     <td><%= link_to 'Destroy', provider, :confirm => 'Are you sure?', :method => :delete %></td>
